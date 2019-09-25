@@ -45,7 +45,7 @@
         {
             "type": "text",
             "readonly": false,
-            "title": "wWorkspace Name",
+            "title": "Workspace Name",
             "key": "workspace-name"
         },
         {
