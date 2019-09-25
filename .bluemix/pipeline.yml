@@ -35,34 +35,38 @@ stages:
         ibmcloud plugin install schematics -f
       fi
 
-      echo '{' \
-        "    \"name\": \"$WORKSPACE_NAME\"," \
-        '    "type": [' \
-        '      "terraform-v1.0"' \
-        '    ],' \
-        '    "description": "the description",' \
-        '    "tags": [],' \
-        '    "template_repo": {' \
-        '      "url": "https://github.com/triceam/cluster"' \
-        '    },' \
-        '    "template_data": [' \
-        '      {' \
-        '        "folder": ".",' \
-        '        "type": "terraform-v1.0",' \
-        '        "values": "",' \
-        '        "variablestore": [' \
-        '           {' \
-        '               "name": "ibmcloud_api_key", ' \
-        "               \"value\": \"$API_KEY\" " \
-        '           }' \
-        '       ]' \
-        '      }' \
-        '    ]' \
-        '  }' > workspace-template.json
-      
-      ibmcloud terraform workspace new -f workspace-template.json -g $GITHUB_TOKEN
+      #check to see if workspace with this name already exists
+      if ! ibmcloud terraform workspace list | grep "$WORKSPACE_NAME"; then
+        echo '{' \
+          "    \"name\": \"$WORKSPACE_NAME\"," \
+          '    "type": [' \
+          '      "terraform-v1.0"' \
+          '    ],' \
+          '    "description": "the description",' \
+          '    "tags": [],' \
+          '    "template_repo": {' \
+          '      "url": "https://github.com/triceam/cluster"' \
+          '    },' \
+          '    "template_data": [' \
+          '      {' \
+          '        "folder": ".",' \
+          '        "type": "terraform-v1.0",' \
+          '        "values": "",' \
+          '        "variablestore": [' \
+          '           {' \
+          '               "name": "ibmcloud_api_key", ' \
+          "               \"value\": \"$API_KEY\" " \
+          '           }' \
+          '       ]' \
+          '      }' \
+          '    ]' \
+          '  }' > workspace-template.json
+        
+        # create the workspace
+        ibmcloud terraform workspace new -f workspace-template.json -g $GITHUB_TOKEN
+      fi 
   
-
+      # get the workspace id 
       workspaces="$(ibmcloud terraform workspace list | grep "$WORKSPACE_NAME")"
       tokens=( $workspaces )
       workspace_id="${tokens[1]}"
