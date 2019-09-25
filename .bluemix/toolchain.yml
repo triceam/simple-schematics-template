@@ -58,7 +58,7 @@ services:
     parameters:
       services:
         - terraform-repo
-      name: 'terraform apply'
+      name: 'Schematics Apply'
       ui-pipeline: true
       configuration:
         content:
