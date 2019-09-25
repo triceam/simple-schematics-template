@@ -63,7 +63,7 @@ stages:
           '  }' > workspace-template.json
         
         # create the workspace
-        ibmcloud terraform workspace new -f workspace-template.json -g $GITHUB_TOKEN
+        ibmcloud terraform workspace new -f workspace-template.json
       fi 
   
       # get the workspace id 
