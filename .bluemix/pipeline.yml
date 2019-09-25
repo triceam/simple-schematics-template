@@ -1,5 +1,9 @@
 ---
 defaultBaseImageVersion: latest
+properties:
+- name: API_KEY
+  value: ${API_KEY}
+  type: secure
 stages:
 - name: DEPLOY
   inputs:
@@ -12,8 +16,6 @@ stages:
   - name: "Workspace Create"
     type: builder
     build_type: shell
-    target:
-      api_key: ${API_KEY}
     script: |
       #!/bin/bash
       echo "Workspace $WORKSPACE_NAME"
