@@ -1,0 +1,66 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "messages": {
+        "$i18n": "locales.yml"
+    },
+    "title": {
+        "$ref": "#/messages/deploy.title"
+    },
+    "description": {
+        "$ref": "#/messages/deploy.description"
+    },
+    "longDescription": {
+        "$ref": "#/messages/deploy.longDescription"
+    },
+    "type": "object",
+    "properties": {
+        "api-key": {
+            "description": {
+                "$ref": "#/messages/deploy.apiKeyDescription"
+            },
+            "type": "string",
+            "validator": {
+                "v-type": "api-key"
+            }
+        },
+        "github-token": {
+            "description": "Git Personal Access Token",
+            "type": "string",
+            "pattern": ""
+        },
+        "workspace-name": {
+            "description": "Schematics Workspace Name",
+            "type": "string"
+        }
+    },
+    "required": [
+        "github-token",
+        "api-key",
+        "workspace-name"
+    ],
+    "form": [{
+            "type": "validator",
+            "url": "/devops/validator/validator-v1.html"
+        },
+        {
+            "type": "text",
+            "readonly": false,
+            "title": "wWorkspace Name",
+            "key": "workspace-name"
+        },
+        {
+            "type": "password",
+            "readonly": false,
+            "title": {
+                "$ref": "#/messages/deploy.apiKeyTitle"
+            },
+            "key": "api-key"
+        },
+        {
+            "type": "password",
+            "readonly": false,
+            "title": "GitHub Personal Access Token",
+            "key": "github-token"
+        },
+    ]
+}
