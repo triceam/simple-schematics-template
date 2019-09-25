@@ -23,7 +23,13 @@ stages:
       #!/bin/bash
       echo "Workspace $WORKSPACE_NAME"
 
-      #force login again (not sure why this is necessary)
+      #force login again
+      # calls to schematics were failing without it, 
+      # so I *assume* that schematics only works if you're targeting some regions.
+      # my toolchain was originally targeting us-east, but after forcing login to 
+      # us-south, things started working.  this is fine for PoC, will have to be resolved
+      # for a production template
+
       ibmcloud login --apikey $API_KEY -r us-south
 
       # test if schematics plugin is installed
