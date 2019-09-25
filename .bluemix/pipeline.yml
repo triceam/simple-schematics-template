@@ -23,6 +23,9 @@ stages:
       #!/bin/bash
       echo "Workspace $WORKSPACE_NAME"
 
+      #force login again (not sure why this is necessary)
+      ibmcloud login --apikey $API_KEY -r us-south
+
       # test if schematics plugin is installed
       echo "attempting to locate schematics plugin..."
       if ! ibmcloud plugin list | grep schematics; then
