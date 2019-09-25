@@ -30,7 +30,7 @@ if true; then
         '    ]' \
         '  }' > workspace-template.json
       
-      ibmcloud terraform workspace new -f workspace-template.json -g $GITHUB_TOKEN
+      ibmcloud terraform workspace new -f workspace-template.json
 fi
 
 

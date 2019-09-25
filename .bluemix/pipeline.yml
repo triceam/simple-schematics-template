@@ -4,9 +4,6 @@ properties:
 - name: API_KEY
   value: ${API_KEY}
   type: secure
-- name: GITHUB_TOKEN
-  value: ${GITHUB_TOKEN}
-  type: secure
 - name: WORKSPACE_NAME
   value: ${WORKSPACE_NAME}
   type: text
