@@ -74,6 +74,6 @@ services:
 form:
   pipeline:
     parameters:
-      workspace-name: 'default'
+      workspace-name: 'my-workspace'
     schema:
       $ref: deploy.json

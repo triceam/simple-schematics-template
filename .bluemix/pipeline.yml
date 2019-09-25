@@ -1,17 +1,13 @@
 ---
 defaultBaseImageVersion: latest
 stages:
-- name: BUILD
+- name: DEPLOY
   inputs:
   - type: git
     branch: master
     service: ${TERRAFORM_REPO}
   triggers:
   - type: commit
-  jobs:
-- name: DEPLOY
-  triggers:
-  - type: stage
   properties:
   - name: GITHUB_TOKEN
     value: undefined
@@ -20,7 +16,7 @@ stages:
     value: "undefined"
     type: text
   jobs:
-  - name: Workspace Create
+  - name: "Workspace Create"
     type: deployer
     target:
       api_key: ${API_KEY}
@@ -61,7 +57,7 @@ stages:
       
       ibmcloud terraform workspace new -f workspace-template.json -g $GITHUB_TOKEN
       
-  - name: Workspace Apply
+  - name: "Workspace Apply"
     type: deployer
     target:
       api_key: ${API_KEY}
