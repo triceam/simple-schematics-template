@@ -7,6 +7,9 @@ properties:
 - name: GITHUB_TOKEN
   value: ${GITHUB_TOKEN}
   type: secure
+- name: WORKSPACE_NAME
+  value: ${WORKSPACE_NAME}
+  type: text
 stages:
 - name: DEPLOY
   inputs:
