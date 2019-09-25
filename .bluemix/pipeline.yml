@@ -10,7 +10,8 @@ stages:
   - type: commit
   jobs:
   - name: "Workspace Create"
-    type: deployer
+    type: builder
+    build_type: shell
     target:
       api_key: ${API_KEY}
     script: |
