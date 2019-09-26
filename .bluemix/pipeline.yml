@@ -7,6 +7,9 @@ properties:
 - name: WORKSPACE_NAME
   value: ${WORKSPACE_NAME}
   type: text
+- name: TERRAFORM_REPO
+  value: ${TERRAFORM_REPO}
+  type: text
 stages:
 - name: DEPLOY
   inputs:
