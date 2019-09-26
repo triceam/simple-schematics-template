@@ -23,18 +23,12 @@
                 "v-type": "api-key"
             }
         },
-        "github-token": {
-            "description": "Git Personal Access Token",
-            "type": "string",
-            "pattern": ""
-        },
         "workspace-name": {
             "description": "Schematics Workspace Name",
             "type": "string"
         }
     },
     "required": [
-        "github-token",
         "api-key",
         "workspace-name"
     ],
@@ -55,12 +49,6 @@
                 "$ref": "#/messages/deploy.apiKeyTitle"
             },
             "key": "api-key"
-        },
-        {
-            "type": "password",
-            "readonly": false,
-            "title": "GitHub Personal Access Token",
-            "key": "github-token"
-        },
+        }
     ]
 }
