@@ -48,7 +48,7 @@ stages:
           '    "description": "the description",' \
           '    "tags": [],' \
           '    "template_repo": {' \
-          '      "url": "https://github.com/triceam/cluster"' \
+          '      "url": "$TERRAFORM_REPO"' \
           '    },' \
           '    "template_data": [' \
           '      {' \
