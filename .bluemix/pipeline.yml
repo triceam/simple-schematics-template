@@ -48,7 +48,7 @@ stages:
           '    "description": "the description",' \
           '    "tags": [],' \
           '    "template_repo": {' \
-          "      \"url\": \"$GIT_URL\"" \
+          "      \"url\": \"${GIT_URL%%.git}\"" \
           '    },' \
           '    "template_data": [' \
           '      {' \
