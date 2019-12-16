@@ -63,7 +63,5 @@ services:
     service_id: orion
 form:
   pipeline:
-    parameters:
-      workspace-id: 'workspace-{{timestamp}}'
     schema:
       $ref: deploy.json
