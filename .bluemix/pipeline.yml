@@ -32,6 +32,8 @@ stages:
 
       ibmcloud login --apikey $API_KEY -r us-south
 
+      echo "ibmcloud terraform workspace update -i $WORKSPACE_ID"
+      ibmcloud terraform workspace update -i $WORKSPACE_ID
 
       # apply changes (there should actually be a terraform plan stage before this)
       echo "ibmcloud terraform apply -i $WORKSPACE_ID --force"
