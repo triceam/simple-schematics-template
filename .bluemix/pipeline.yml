@@ -34,6 +34,7 @@ stages:
 
 
       # apply changes (there should actually be a terraform plan stage before this)
+      echo "ibmcloud terraform apply -i $WORKSPACE_ID --force"
       ibmcloud terraform apply -i $WORKSPACE_ID --force
 
 
