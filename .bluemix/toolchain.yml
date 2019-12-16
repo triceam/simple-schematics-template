@@ -26,9 +26,9 @@ template:
           '[master]('+ $env.repository + '/tree/master)'
 toolchain:
   name: 'schematics-{{timestamp}}'
-  template:
-    getting_started:
-      $ref: "#/messages/template.gettingStarted"
+  #template:
+  #  getting_started:
+  #    $ref: "#/messages/template.gettingStarted"
 services:
   terraform-repo:
     service_id: >

@@ -5,9 +5,6 @@
     },
     "title": "Schematics Terraform Prototype",
     "description": "Prototype toolchain templates for IBM Cloud Schematics",
-    "longDescription": {
-        "$ref": "#/messages/deploy.longDescription"
-    },
     "type": "object",
     "properties": {
         "api-key": {
