@@ -1,18 +1,9 @@
 version: '2'
-messages:
-  $i18n: locales.yml
 template:
   name: 'Schematics Terraform Prototype'
   #name:
   #  $ref: "#/messages/template.name"
-  description:
-    #original static description:
-    #$ref: "#/messages/template.description"
-    #template descriptions now vary depending on the flavor of source provider selected
-    $ref: >
-      $env.source_provider === 'githubconsolidated' ? 
-      '#/messages/template.description.github' : '#/messages/template.description'
-  header: '![](toolchain.svg?localize)'
+  description: "Prototype toolchain templates for IBM Cloud Schematics "
   icon: icon.svg
   required:
     - terraform-apply
@@ -20,9 +11,9 @@ template:
   info:
     #original static git url and branch string definitions
     #git url: >-
-    #  [https://github.com/open-toolchain/simple-toolchain-hosted](https://github.com/open-toolchain/simple-toolchain-hosted)
+    #  [https://github.com/open-toolchain/schematics-toolchain](https://github.com/open-toolchain/schematics-toolchain)
     #git branch: >-
-    #  [master](https://github.com/open-toolchain/simple-toolchain-hosted/tree/master)
+    #  [master](https://github.com/open-toolchain/schematics-toolchain/tree/master)
     
     # compute the git url and branch values dynamically so that they remain correct when repo is forked etc. 
     # note: `repository` url param must always be provided while the `branch` url param is optional
@@ -50,7 +41,7 @@ services:
       source_repo_url: >
         $env.type === 'fork' || $env.type === 'clone' ? 
           $env.app_repo : 'https://github.com/triceam/cluster.git'
-      type: $env.type || 'clone'
+      type: $env.type || 'link'
       has_issues: true
       enable_traceability: true
   terraform-apply:
@@ -65,7 +56,7 @@ services:
           $text: pipeline.yml
         env:
           TERRAFORM_REPO: terraform-repo
-          WORKSPACE_NAME: '{{form.pipeline.parameters.workspace-name}}'
+          WORKSPACE_ID: '{{form.pipeline.parameters.workspace-id}}'
           API_KEY: '{{form.pipeline.parameters.api-key}}'
         execute: true
   webide:
@@ -73,6 +64,6 @@ services:
 form:
   pipeline:
     parameters:
-      workspace-name: 'workspace-{{timestamp}}'
+      workspace-id: 'workspace-{{timestamp}}'
     schema:
       $ref: deploy.json
