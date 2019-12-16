@@ -16,7 +16,7 @@ stages:
   triggers:
   - type: commit
   jobs:
-  - name: "Workspace Create"
+  - name: "Terraform Apply"
     type: builder
     build_type: shell
     script: |
