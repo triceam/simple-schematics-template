@@ -32,15 +32,6 @@ stages:
 
       ibmcloud login --apikey $API_KEY -r us-south
 
-      # test if schematics plugin is installed
-      echo "attempting to locate schematics plugin..."
-      ibmcloud schematics
-      #if ! ibmcloud plugin list | grep schematics; then
-      #  ibmcloud plugin install schematics -f
-      #fi
-  
-
-
 
       # apply changes (there should actually be a terraform plan stage before this)
       ibmcloud terraform apply -i $WORKSPACE_ID --force
