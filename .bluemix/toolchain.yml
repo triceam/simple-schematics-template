@@ -63,5 +63,7 @@ services:
     service_id: orion
 form:
   pipeline:
+    parameters:
+      workspace-id: '{{$env.workspace-id}}'
     schema:
       $ref: deploy.json
