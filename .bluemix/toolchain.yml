@@ -64,6 +64,6 @@ services:
 form:
   pipeline:
     parameters:
-      workspace-id: '{{$env.workspace-id}}'
+      workspace-id: $env.workspace-id
     schema:
       $ref: deploy.json
