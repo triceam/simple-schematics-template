@@ -3,21 +3,15 @@
     "messages": {
         "$i18n": "locales.yml"
     },
-    "title": {
-        "$ref": "#/messages/deploy.title"
-    },
-    "description": {
-        "$ref": "#/messages/deploy.description"
-    },
+    "title": "Schematics Terraform Prototype",
+    "description": "Prototype toolchain templates for IBM Cloud Schematics",
     "longDescription": {
         "$ref": "#/messages/deploy.longDescription"
     },
     "type": "object",
     "properties": {
         "api-key": {
-            "description": {
-                "$ref": "#/messages/deploy.apiKeyDescription"
-            },
+            "description": "IBM Cloud API Key",
             "type": "string",
             "validator": {
                 "v-type": "api-key"
