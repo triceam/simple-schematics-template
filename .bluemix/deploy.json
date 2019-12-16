@@ -34,14 +34,12 @@
             "type": "text",
             "readonly": false,
             "title": "Workspace Name",
-            "key": "workspace-name"
+            "key": "workspace-id"
         },
         {
             "type": "password",
             "readonly": false,
-            "title": {
-                "$ref": "#/messages/deploy.apiKeyTitle"
-            },
+            "title": "IBM Cloud API Key",
             "key": "api-key"
         }
     ]
