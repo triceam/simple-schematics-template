@@ -34,9 +34,10 @@ stages:
 
       # test if schematics plugin is installed
       echo "attempting to locate schematics plugin..."
-      if ! ibmcloud plugin list | grep schematics; then
-        ibmcloud plugin install schematics -f
-      fi
+      ibmcloud schematics
+      #if ! ibmcloud plugin list | grep schematics; then
+      #  ibmcloud plugin install schematics -f
+      #fi
   
 
 
